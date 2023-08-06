@@ -46,14 +46,25 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'cloudsdale-master' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav"><?php esc_html_e( 'Primary Menu', 'cloudsdale-master' ); ?></button>
+
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasNavLabel"><?php esc_html_e( 'Menu', 'cloudsdale-master' ); ?></h5>
+					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+							'container'      => false,
+							'menu_class'     => 'navbar-nav',
+						)
+					);
+					?>
+				</div>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

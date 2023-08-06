@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Cloudsdale_Theme
+ * @package _s
  */
 
 get_header();

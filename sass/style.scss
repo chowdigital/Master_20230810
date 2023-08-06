@@ -47,39 +47,175 @@ Author URI: https://cloudsdale.co.uk/
 /* Box sizing
 --------------------------------------------- */
 @import "generic/box-sizing";
-
-/*--------------------------------------------------------------
+/*-------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
 @import "base/base";
-
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
 // @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
 // @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
-
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
 @import "components/components";
-
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-
 /* Jetpack infinite scroll
 --------------------------------------------- */
 @import "plugins/jetpack/infinite-scroll";
-
 /*--------------------------------------------------------------
 # Utilities
 --------------------------------------------------------------*/
-
 /* Accessibility
 --------------------------------------------- */
 @import "utilities/accessibility";
-
 /* Alignments
 --------------------------------------------- */
 @import "utilities/alignments";
+
+// ===========================================================================
+// My Custom Styles
+// ===========================================================================
+//
+// Table of Contents:
+//
+//  1. Header Settings
+//  2. Typography
+//  3. Navigation
+//  4. Footer
+//  5. Containers
+//  6. Buttons
+//  7. Video
+//  8. Carousel
+
+$primary: #051c2b;
+$highlight: #da6519;
+$white: #efeeeb;
+
+// ===========================================================================
+// 1. Header Settings
+// ===========================================================================
+body,
+#page,
+.view,
+html {
+  width: 100%;
+  height: 100%;
+}
+// Settings for navbar in edit mode
+body.logged-in {
+  nav {
+    margin-top: 32px;
+  }
+}
+body {
+  background-color: $primary;
+}
+
+// ===========================================================================
+//  2. Typography
+// ===========================================================================
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body,
+p {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.menu-item a,
+.btn,
+button {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+// ===========================================================================
+//  3. Navigation
+// ===========================================================================
+
+.menu-toggle {
+  display: block;
+}
+
+// ===========================================================================
+//  8. Carousel
+// ===========================================================================
+
+#loopCarousel {
+  margin-bottom: 50px;
+}
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+    display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.33%);
+  }
+
+  .carousel-inner .carousel-item-start.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.33%);
+  }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+  transform: translateX(0);
+}
+
+/* Custom CSS for the carousel indicators */
+.carousel-indicators {
+  bottom: -50px; /* Adjust the spacing from the carousel */
+  list-style: none;
+  text-align: center;
+  background-color: red;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px; /* Set the width of the circle */
+  height: 10px; /* Set the height of the circle */
+  margin: 0 5px; /* Adjust the spacing between the circles */
+  background-color: red; /* Change this to your desired color for inactive indicators */
+  border-radius: 50%; /* Make the circles round */
+  cursor: pointer;
+}
+
+.carousel-indicators .active {
+  background-color: blue; /* Change this to your desired color for active indicators */
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+}
