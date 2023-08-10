@@ -106,8 +106,11 @@ html {
   height: 100%;
 }
 // Settings for navbar in edit mode
+
 body.logged-in {
-  nav {
+  nav,
+  .cm-nav,
+  #offcanvasNav {
     margin-top: 32px;
   }
 }
@@ -115,6 +118,18 @@ body {
   background-color: $primary;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-end {
+  align-self: flex-end;
+}
 // ===========================================================================
 //  2. Typography
 // ===========================================================================
@@ -151,8 +166,93 @@ button {
 
 .menu-toggle {
   display: block;
+  background-color: transparent;
+  border: none;
+}
+.navbar-toggler-icon {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
+.cm-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $primary;
+  height: 72px;
+}
+.cm-nav-inner {
+  position: relative;
+}
+
+.navbar-brand {
+  background-color: $white;
+  width: 200px;
+  position: absolute;
+  height: 80px;
+  top: 0;
+  left: calc(50% - 100px);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  transition: height 0.5s ease-in-out;
+
+  img {
+    left: calc(50% - 75px);
+    position: relative;
+    height: 60px;
+    top: 10px;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+.navbar-brand img {
+  width: 150px;
+  max-height: auto;
+}
+.menu-toggle {
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  .menu-icon {
+    background-image: url(../cloudsdale-master/assets/icons/menu.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+  }
+}
+.social-icons {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  padding: none;
+  a {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+  }
+  .instagram-icon {
+    background-image: url(../cloudsdale-master/assets/icons/instagram.svg);
+  }
+  .facebook-icon {
+    background-image: url(../cloudsdale-master/assets/icons/facebook.svg);
+  }
+  .twitter-icon {
+    background-image: url(../cloudsdale-master/assets/icons/twitter.svg);
+  }
+}
 // ===========================================================================
 //  8. Carousel
 // ===========================================================================
